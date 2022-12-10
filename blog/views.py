@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 
@@ -10,3 +10,8 @@ def post_list(request):
     # {}}이 보일 텐데, 이곳에 템플릿을 사용하기 위해 매개변수를 추가할 거에요. 
     # (이 매개변수를'posts'라고 할거에요){'posts': posts}이렇게 작성할거에요
     return render(request, 'blog/post_list.html', {'posts':posts}) 
+
+def post_detail(request, pk):
+    #쿼리셋(queryset)
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})
