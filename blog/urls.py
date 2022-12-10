@@ -8,4 +8,8 @@ urlpatterns = [
     #/ 다음에 /가 한번 더
     #결국, http://127.0.0.1:8000/post/5/ post_detail에서뷰를 찾음
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
+    
+    path('post/new', views.post_new, name='post_new'),
+    
+    path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]
